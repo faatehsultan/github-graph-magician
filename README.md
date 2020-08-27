@@ -1,4 +1,4 @@
-# 					GitHub Graph Magician
+# 					[GitHub Graph Magician](https://faatehsultan.github.io/github-graph-magician/)
 
 
 
