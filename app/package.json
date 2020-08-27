@@ -1,0 +1,17 @@
+{
+  "name": "gh_graph_magician",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gh_graph_magician.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "jsonfile": "^6.0.1",
+    "moment": "^2.27.0",
+    "simple-git": "^2.20.1"
+  }
+}

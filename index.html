@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Github Graph Magician</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Slab&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/dad976447d.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="container">
+    <header>
+      <h1><a href="./index.html" id="header-logo">GitHub Graph Magician</a></h1>
+      <div>
+        <p style="
+              font-size: 1.1em;
+              text-align: center;
+              font-family: 'Roboto Slab', serif;
+            ">
+          Give a fun look to your Github Contribution Graph <i class="fas fa-magic"></i>
+        </p>
+      </div>
+      <hr />
+    </header>
+  </div>
+
+
+  <!-- Invalid Screen Size Section -->
+  <div id="invalidScreenSize">
+    <div>You need min <strong>695px</strong> screen to use this app</div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container-fluid">
+      <div>
+        <p>
+          <b>Step 1.</b> Install <strong><a id="nodejs-link" href="https://nodejs.org/en/download/" target="_blank">Node JS</a></strong> on your pc<br />
+          <b>Step 2.</b> Create an empty private repository (any name e.g. test) in GitHub and clone it to PC.<br />
+          <b>Step 3.</b> Download
+          <strong><a href="#" download="gh_graph_magician">gh_graph_magician</a></strong>
+          and extract all of its contents to
+          cloned repository directory<br />
+          <b>Step 4.</b> Create pattern in grid below and click
+          Generate button to download the <em>targetSpot.json</em> file
+        </p>
+      </div>
+      <div id="graph-input-boxes">
+        <!-- Checkboxes grid -->
+      </div>
+      <br />
+      <div>
+        <button><a id="generate" onclick="triggerGrid();" download="" href="">GENERATE</a></button>
+        <button id="reset" onclick="reset();">RESET</button>
+        <button id="theme-toggler" style="background:transparent; color: var(--curFG);" onclick="toggleTheme();"><i
+            class="fas fa-moon" style="display:none;"></i><i class="fas fa-sun"></i></button>
+        <button hidden id="help-btn" style="background:transparent; color: var(--curFG);"
+          onclick="gotoHelp();">HELP</button>
+      </div>
+      <div>
+        <p>
+          <br />
+          <b>Step 5.</b> Copy <em>targetSpot.json</em> to the directory where you
+          cloned repository <br />
+          <b>Step 6.</b> Open the terminal (or cmd), navigate to <em>app</em> directory
+          in cloned repository directory and run:<br />
+        </p>
+        <code data-clipboard-text="node gh_graph_magician.js">node gh_graph_magician.js</code>
+        <br />
+        <br />
+        <p>AND see the Magic!</p>
+        <small>*Run this command again and again to gain more darker shade!</small>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Help Page -->
+  <article id="help-page" style="display: none;"></article>
+
+
+  <!-- Footer -->
+  <div class="container" id="footer">
+    <hr />
+    <p>
+      </i> <strong>Made with <i class="fas fa-heart"></i> in Lahore, PK </i>
+        <a href="https://github.com/faatehsultan/github-graph-magician"><i class="fab fa-github"></i></a>
+    </p>
+  </div>
+
+  <!-- JAVASCRIPT-->
+  <script>
+    (function () {
+      for (y = 0; y < 7; y++) {
+        const cur = document.createElement("div");
+        cur.className = "row";
+        document
+          .querySelector("#graph-input-boxes")
+          .insertAdjacentElement("beforeend", cur);
+
+        for (x = 0; x < 54; x++) {
+          var spot = document.createElement("input");
+          spot.type = "checkbox";
+          spot.id = String("x" + x + "y" + y);
+          cur.insertAdjacentElement("beforeend", spot);
+        }
+      }
+    })();
+  </script>
+  <script>
+    function toggleTheme() {
+      var targetColors = document.styleSheets.item(5);
+
+      var lightThemeRoot = ':root { --lightTheme_background: #bdc3c7; --lightTheme_foreground: #34495e; --darkTheme_background: #2c3e50; --darkTheme_foreground: #ecf0f1; --RobotoSlab: "Roboto Slab", serif; --Nunito: "Nunito", sans-serif; --curBG: var(--lightTheme_background); --curFG: var(--lightTheme_foreground); --curBtnFG: white; }';
+      var darkThemeRoot = ':root { --lightTheme_background: #bdc3c7; --lightTheme_foreground: #34495e; --darkTheme_background: #2c3e50; --darkTheme_foreground: #ecf0f1; --RobotoSlab: "Roboto Slab", serif; --Nunito: "Nunito", sans-serif; --curBG: var(--darkTheme_background); --curFG: var(--darkTheme_foreground); --curBtnFG: black; }';
+      if (targetColors.rules.item(0).cssText == lightThemeRoot) {
+        targetColors.removeRule(0);
+        targetColors.insertRule(darkThemeRoot);
+        document.querySelector(".fa-sun").style = "display: none;";
+        document.querySelector(".fa-moon").style = "";
+      } else {
+        targetColors.removeRule(0);
+        targetColors.insertRule(lightThemeRoot);
+        document.querySelector(".fa-sun").style = "";
+        document.querySelector(".fa-moon").style = "display: none;";
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+  <script>
+    function createDownloadLink(anchorSelector, str, fileName) {
+      var url = "data:text/plain;charset=utf-8," + encodeURIComponent(str);
+      document.querySelector(anchorSelector).setAttribute("download", fileName);
+      document.querySelector(anchorSelector).setAttribute("href", url);
+    }
+  </script>
+  <script>
+    function triggerGrid() {
+      var resultant = [];
+      for (y = 0; y < 7; y++) {
+        for (x = 0; x < 54; x++) {
+          if (document.getElementById(String("x" + x + "y" + y)).checked) {
+            resultant.push({
+              "x": x,
+              "y": y,
+            });
+          }
+        }
+      }
+      var jsonResultant = JSON.stringify(resultant);
+      createDownloadLink("#generate", jsonResultant, "targetSpot.json");
+    }
+  </script>
+  <script>
+    function reset() {
+      for (x = 0; x < 7; x++) {
+        for (y = 0; y < 54; y++) {
+          if (document.getElementById(String("x" + x + "y" + y)).checked) {
+            document.getElementById(String("x" + x + "y" + y)).checked = false;
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    function gotoHelp() {
+      document.getElementsByTagName("main")[0].style = "display: none;";
+      document.querySelector("#help-page").style = "";
+    }
+    function backToMainFromHelpPage() {
+      document.getElementsByTagName("main")[0].style = "";
+      document.querySelector("#help-page").style = "display: none;";
+    }
+  </script>
+</body>
+
+</html>
