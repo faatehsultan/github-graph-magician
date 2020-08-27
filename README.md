@@ -4,7 +4,7 @@
 
 ### Developed By [Syed Faateh Sultan Kazmi](https://github.com/faatehsultan)
 
-***Version: 1.0.0***
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/faatehsultan/github-graph-magician?style=social) ![GitHub Release Date](https://img.shields.io/github/release-date/faatehsultan/github-graph-magician)
 
 ### Disclaimer
 
