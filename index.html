@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <script src="https://kit.fontawesome.com/dad976447d.js" crossorigin="anonymous"></script>
-<link rel="icon" type="image/png" href="/favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -159,15 +159,16 @@
     }
   </script>
   <script>
-    function reset() {
-      for (x = 0; x < 7; x++) {
-        for (y = 0; y < 54; y++) {
+       function reset() {
+      for (y = 0; y < 7; y++) {
+        for (x = 0; x < 54; x++) {
           if (document.getElementById(String("x" + x + "y" + y)).checked) {
             document.getElementById(String("x" + x + "y" + y)).checked = false;
           }
         }
       }
     }
+
   </script>
   <script>
     function gotoHelp() {
