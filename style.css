@@ -23,6 +23,9 @@ body {
   font-family: var(--RobotoSlab);
   position: relative;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 header {
   margin-top: 15px;
@@ -62,21 +65,11 @@ button:active {
   outline: none;
 }
 #footer {
-  margin-top: 25px;
   width: 100%;
-  height: auto;
   font-family: var(--RobotoSlab);
-  width: 100%;
 }
 p {
   font-size: 1.1em;
-}
-code {
-  background-color: #130f40;
-  color: #f0932b;
-  font-weight: bold;
-  padding: 10px;
-  margin: 5px;
 }
 hr {
   background-color: var(--curFG);
@@ -96,6 +89,12 @@ a#header-logo:hover {
 a#generate:hover {
   text-decoration: none;
   color: var(--curBtnFG);
+}
+main {
+  flex: 1 0 0;
+}
+#errorModal {
+  color: var(--lightTheme_foreground);
 }
 
 /* screen size validation */

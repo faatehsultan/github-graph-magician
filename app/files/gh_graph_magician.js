@@ -1,6 +1,6 @@
 //GH GRAPH MAGICIAN
 //Website: https://faatehsultan.github.io/github-graph-magician
-//Version: 1.0.0
+//Version: 1.1.0
 //Developed by: Syed Faateh Sultan Kazmi
 //-------------------------------------------------------------
 /*Disclaimer: The developer do not promote or recommend taking any 
@@ -13,7 +13,7 @@ const simpleGit = require("simple-git");
 const fs = require("fs");
 
 const FILE_PATH = "./dataFile.json";
-const TARGET_SPOT_FILE = "./targetSpot.json";
+const TARGET_SPOT_FILE = "./config.json";
 
 const isLeapYear = (year) => {
   return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0;
@@ -21,7 +21,6 @@ const isLeapYear = (year) => {
 
 const magic = (index, spotList) => {
   if (index >= spotList.length) {
-    console.log("Step 3: GitHub Push Success!");
     return simpleGit().push();
   }
 
@@ -46,22 +45,10 @@ const magic = (index, spotList) => {
 
 //main function
 jsonfile.readFile(TARGET_SPOT_FILE, (err, data) => {
-  console.log(
-    "\t\tGITHUB GRAPH MAGICIAN\n\t\t---------------------\n\tDeveloped by: Syed Faateh Sultan Kazmi\n\tVisit: https://faatehsultan.github.io/github-graph-magician\n\n"
-  );
-  console.log("STARTING MAGIC!");
-  console.log(
-    "\n*Disclaimer: The developer do not promote or recommend taking any kind of unfair advantage using this app. User will be responsible for taking any unfair advantage of this app"
-  );
   if (err) {
     console.log(err.message);
   } else {
-    console.log("Step 1: JSON file read success");
-    console.log("Step 2: Spots Processing success\t");
-    magic(0, data);
-    console.log(
-      "\nMAGIC SUCCESSFULLY COMPLETED! See your GitHub Contribution Graph :)\n"
-    );
+    magic(1, data);
   }
 });
 

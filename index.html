@@ -14,16 +14,10 @@
 </head>
 
 <body>
-  <!--New Version Soon Notification-->
-  <div class="alert alert-info alert-dismissible fade show" role="alert" style="padding-top:0px; padding-bottom: 0px;">
-    New <strong>Version 1.1.0</strong> with automated intensity and execution system will be released soon! 
-  </div>
-
-
   <!-- Header -->
   <div class="container">
     <header>
-      <h1><a href="./index.html" id="header-logo">GitHub Graph Magician <small style="font-size:0.4em; font-weight: bold;">1.0.0</small></a></h1>
+      <h1><a href="./index.html" id="header-logo">GitHub Graph Magician <small style="font-size:0.4em; font-weight: bold;">1.1.0</small></a></h1>
       <div>
         <p style="
               font-size: 1.1em;
@@ -39,61 +33,60 @@
 
 
   <!-- Invalid Screen Size Section -->
-  <div id="invalidScreenSize">
+  <main id="invalidScreenSize">
     <div>You need min <strong>695px</strong> screen to use this app</div>
-  </div>
+  </main>
 
   <!-- Main Content -->
   <main>
     <div class="container-fluid">
       <div>
         <p>
-          <b>Step 1.</b> Install <strong><a id="nodejs-link" href="https://nodejs.org/en/download/" target="_blank">Node JS</a></strong> on your pc<br />
-          <b>Step 2.</b> Create an empty private repository (any name e.g. test) in GitHub and clone it to PC.<br />
+          <b>Step 1.</b> Install <strong data-toggle="tooltip" data-placement="top" title="Download Node JS"><a id="nodejs-link" href="https://nodejs.org/en/download/" target="_blank">Node JS</a></strong> on your pc<br />
+          <b>Step 2.</b> Create an empty private repository (any name e.g) in GitHub and clone it to PC<br />
           <b>Step 3.</b> Download
-          <strong><a href="https://github.com/faatehsultan/github-graph-magician/releases/download/v1.0.0/gh_graph_magician.zip" download="gh_graph_magician">gh_graph_magician</a></strong>
-          and extract all of its contents to
+          <strong data-toggle="tooltip" data-placement="top" title="Download Github Graph Magician"><a href="https://github.com/faatehsultan/github-graph-magician/releases/latest/download/gh_graph_magician.zip" download="gh_graph_magician">gh_graph_magician</a></strong>
+          and extract it to
           cloned repository directory<br />
-          <b>Step 4.</b> Create pattern in grid below and click
-          Generate button to download the <em>targetSpot.json</em> file
+          <b>Step 4.</b> Create pattern in the grid and set intensity from the range selector below
         </p>
       </div>
       <div id="graph-input-boxes">
         <!-- Checkboxes grid -->
       </div>
       <br />
+      <!-- Intensity Range -->
+      <div id="intensity_range-div">
+        <input type="range" min="1" max="20" id="intensity_range" value="11">
+      </div>
+      <br />
       <div>
-        <button><a id="generate" onclick="triggerGrid();" download="" href="">GENERATE</a></button>
+        <button><a id="generate" onclick="triggerConfig();" download="" href="">GENERATE</a></button>
         <button id="reset" onclick="reset();">RESET</button>
-        <button id="theme-toggler" style="background:transparent; color: var(--curFG);" onclick="toggleTheme();"><i
-            class="fas fa-moon" style="display:none;"></i><i class="fas fa-sun"></i></button>
         <button hidden id="help-btn" style="background:transparent; color: var(--curFG);"
           onclick="gotoHelp();">HELP</button>
       </div>
       <div>
         <p>
           <br />
-          <b>Step 5.</b> Copy <em>targetSpot.json</em> to the directory where you
-          cloned repository <br />
-          <b>Step 6.</b> Open the terminal (or cmd), navigate to <em>app</em> directory
-          in cloned repository directory and run:<br />
-        </p>
-        <code data-clipboard-text="node gh_graph_magician.js">node gh_graph_magician.js</code>
-        <br />
-        <br />
-        <p>AND see the Magic!</p>
-        <small>*Run this command again and again to gain more darker shade!</small>
+          <b>Step 5.</b> Click the Generate button to download the <em>config</em> file <br>
+          <b>Step 6.</b> Copy the downloaded <em>config</em> file to the cloned repository directory<br />
+          <b>Step 7.</b> Finally, run the <em>SETUP</em> file<br />
+        <strong>AND see the Magic!</strong></p>
       </div>
     </div>
   </main>
 
 
   <!-- Help Page -->
-  <article id="help-page" style="display: none;"></article>
-
+  <main>
+    <article id="help-page" style="display: none;"></article>
+  </main>
 
   <!-- Footer -->
   <div class="container" id="footer">
+    <button id="theme-toggler" style="background:transparent; color: var(--curFG);" onclick="toggleTheme();"><i
+      class="fas fa-moon" style="display:none;"></i><i class="fas fa-sun"></i></button>
     <hr />
     <p>
       </i> <strong>Made with <i class="fas fa-heart"></i> in Lahore, PK </i>
@@ -101,7 +94,30 @@
     </p>
   </div>
 
+  <!-- ERROR MODALS using bootstrap -->
+  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalTitle">Invalid Setting</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Please select at least 1 cell from the grid to generate the configuration file!
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
   <!-- JAVASCRIPT-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
   <script>
     (function () {
       for (y = 0; y < 7; y++) {
@@ -139,7 +155,6 @@
       }
     }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
   <script>
     function createDownloadLink(anchorSelector, str, fileName) {
       var url = "data:text/plain;charset=utf-8," + encodeURIComponent(str);
@@ -148,8 +163,11 @@
     }
   </script>
   <script>
-    function triggerGrid() {
+    function triggerConfig() {
       var resultant = [];
+      resultant.push({
+        intensity: document.getElementById("intensity_range").value
+      });
       for (y = 0; y < 7; y++) {
         for (x = 0; x < 54; x++) {
           if (document.getElementById(String("x" + x + "y" + y)).checked) {
@@ -160,8 +178,14 @@
           }
         }
       }
-      var jsonResultant = JSON.stringify(resultant);
-      createDownloadLink("#generate", jsonResultant, "targetSpot.json");
+      if(resultant.length > 1) {
+        var jsonResultant = JSON.stringify(resultant);
+        createDownloadLink("#generate", jsonResultant, "config.json");
+      } else {
+        document.querySelector("#generate").removeAttribute('download');
+        document.querySelector("#generate").removeAttribute('href');
+        $('#errorModal').modal('toggle');
+      }
     }
   </script>
   <script>
@@ -173,6 +197,7 @@
           }
         }
       }
+      document.querySelector("#intensity_range").value = 11;
     }
 
   </script>
