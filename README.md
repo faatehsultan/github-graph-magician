@@ -17,3 +17,7 @@ Have you ever wanted to modify the looks of your GitHub Contribution Graph? This
 ## Usage
 
 Install **Node JS** on your system and visit [Github Graph Magician](https://faatehsultan.github.io./github-graph-magician) to get thorough usage instructions!
+
+## Help and Wiki
+
+You can wiki docs for this project [here](https://faatehsultan.github.io./github-graph-magician/wiki)

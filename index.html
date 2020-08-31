@@ -2,215 +2,210 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Github Graph Magician</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Slab&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-  <script src="https://kit.fontawesome.com/dad976447d.js" crossorigin="anonymous"></script>
-<link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Graph Magician</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Slab&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/dad976447d.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Header -->
-  <div class="container">
-    <header>
-      <h1><a href="./index.html" id="header-logo">GitHub Graph Magician <small style="font-size:0.4em; font-weight: bold;">1.1.0</small></a></h1>
-      <div>
-        <p style="
+    <!-- Header -->
+    <div class="container">
+        <header>
+            <h1><a href="./index.html" id="header-logo">GitHub Graph Magician <small
+                        style="font-size:0.4em; font-weight: bold;">1.1.0</small></a></h1>
+            <div>
+                <p style="
               font-size: 1.1em;
               text-align: center;
               font-family: 'Roboto Slab', serif;
             ">
-          Give a fun look to your Github Contribution Graph <i class="fas fa-magic"></i>
-        </p>
-      </div>
-      <hr />
-    </header>
-  </div>
-
-
-  <!-- Invalid Screen Size Section -->
-  <main id="invalidScreenSize">
-    <div>You need min <strong>695px</strong> screen to use this app</div>
-  </main>
-
-  <!-- Main Content -->
-  <main>
-    <div class="container-fluid">
-      <div>
-        <p>
-          <b>Step 1.</b> Install <strong data-toggle="tooltip" data-placement="top" title="Download Node JS"><a id="nodejs-link" href="https://nodejs.org/en/download/" target="_blank">Node JS</a></strong> on your pc<br />
-          <b>Step 2.</b> Create an empty private repository (any name e.g) in GitHub and clone it to PC<br />
-          <b>Step 3.</b> Download
-          <strong data-toggle="tooltip" data-placement="top" title="Download Github Graph Magician"><a href="https://github.com/faatehsultan/github-graph-magician/releases/latest/download/gh_graph_magician.zip" download="gh_graph_magician">gh_graph_magician</a></strong>
-          and extract it to
-          cloned repository directory<br />
-          <b>Step 4.</b> Create pattern in the grid and set intensity from the range selector below
-        </p>
-      </div>
-      <div id="graph-input-boxes">
-        <!-- Checkboxes grid -->
-      </div>
-      <br />
-      <!-- Intensity Range -->
-      <div id="intensity_range-div">
-        <input type="range" min="1" max="20" id="intensity_range" value="11">
-      </div>
-      <br />
-      <div>
-        <button><a id="generate" onclick="triggerConfig();" download="" href="">GENERATE</a></button>
-        <button id="reset" onclick="reset();">RESET</button>
-        <button hidden id="help-btn" style="background:transparent; color: var(--curFG);"
-          onclick="gotoHelp();">HELP</button>
-      </div>
-      <div>
-        <p>
-          <br />
-          <b>Step 5.</b> Click the Generate button to download the <em>config</em> file <br>
-          <b>Step 6.</b> Copy the downloaded <em>config</em> file to the cloned repository directory<br />
-          <b>Step 7.</b> Finally, run the <em>SETUP</em> file<br />
-        <strong>AND see the Magic!</strong></p>
-      </div>
+                    Give a fun look to your Github Contribution Graph <i class="fas fa-magic"></i>
+                </p>
+            </div>
+            <hr />
+        </header>
     </div>
-  </main>
 
 
-  <!-- Help Page -->
-  <main>
-    <article id="help-page" style="display: none;"></article>
-  </main>
+    <!-- Invalid Screen Size Section -->
+    <main id="invalidScreenSize">
+        <div>You need min <strong>695px</strong> screen to use this app</div>
+    </main>
 
-  <!-- Footer -->
-  <div class="container" id="footer">
-    <button id="theme-toggler" style="background:transparent; color: var(--curFG);" onclick="toggleTheme();"><i
-      class="fas fa-moon" style="display:none;"></i><i class="fas fa-sun"></i></button>
-    <hr />
-    <p>
-      </i> <strong>Made with <i class="fas fa-heart"></i> in Lahore, PK </i>
-        <a href="https://github.com/faatehsultan/github-graph-magician"><i class="fab fa-github"></i></a>
-    </p>
-  </div>
-
-  <!-- ERROR MODALS using bootstrap -->
-  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="errorModalTitle">Invalid Setting</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <!-- Main Content -->
+    <main>
+        <div class="container-fluid">
+            <div>
+                <p>
+                    <b>Step 1.</b> Install <strong data-toggle="tooltip" data-placement="top"
+                        title="Download Node JS"><a id="nodejs-link" href="https://nodejs.org/en/download/"
+                            target="_blank">Node JS</a></strong> on your pc<br />
+                    <b>Step 2.</b> Create an empty private repository (any name e.g) in GitHub and clone it to PC<br />
+                    <b>Step 3.</b> Download
+                    <strong data-toggle="tooltip" data-placement="top" title="Download Github Graph Magician"><a
+                            href="https://github.com/faatehsultan/github-graph-magician/releases/latest/download/gh_graph_magician.zip"
+                            download="gh_graph_magician">gh_graph_magician</a></strong>
+                    and extract it to
+                    cloned repository directory<br />
+                    <b>Step 4.</b> Create pattern in the grid and set intensity from the range selector below
+                </p>
+            </div>
+            <div id="graph-input-boxes">
+                <!-- Checkboxes grid -->
+            </div>
+            <br />
+            <!-- Intensity Range -->
+            <div id="intensity_range-div">
+                <input type="range" min="1" max="20" id="intensity_range" value="11">
+            </div>
+            <br />
+            <div>
+                <button><a id="generate" onclick="triggerConfig();" download="" href="">GENERATE</a></button>
+                <button id="reset" onclick="reset();">RESET</button> <br>
+                <a id="help-btn" href="https://github.com/faatehsultan/github-graph-magician/wiki/Github-Graph-Magician-Wiki"
+                    target="_blank">HELP</a>
+            </div>
+            <div>
+                <p>
+                    <br />
+                    <b>Step 5.</b> Click the Generate button to download the <em>config</em> file <br>
+                    <b>Step 6.</b> Copy the downloaded <em>config</em> file to the cloned repository directory<br />
+                    <b>Step 7.</b> Finally, run the <em>SETUP</em> file<br />
+                    <strong>AND see the Magic!</strong></p>
+            </div>
         </div>
-        <div class="modal-body">
-          Please select at least 1 cell from the grid to generate the configuration file!
-        </div>
-      </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="container" id="footer">
+        <button id="theme-toggler" style="background:transparent; color: var(--curFG);" onclick="toggleTheme();"><i
+                class="fas fa-moon" style="display:none;"></i><i class="fas fa-sun"></i></button>
+        <hr />
+        <p>
+            </i> <strong>Made with <i class="fas fa-heart"></i> in Lahore, PK </i>
+                <a href="https://github.com/faatehsultan/github-graph-magician"><i class="fab fa-github"></i></a>
+        </p>
     </div>
-  </div>
-  
+
+    <!-- ERROR MODALS using bootstrap -->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalTitle">Invalid Setting</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Please select at least 1 cell from the grid to generate the configuration file!
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-  <!-- JAVASCRIPT-->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <script>
-    (function () {
-      for (y = 0; y < 7; y++) {
-        const cur = document.createElement("div");
-        cur.className = "row";
-        document
-          .querySelector("#graph-input-boxes")
-          .insertAdjacentElement("beforeend", cur);
+    <!-- JAVASCRIPT-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-        for (x = 0; x < 54; x++) {
-          var spot = document.createElement("input");
-          spot.type = "checkbox";
-          spot.id = String("x" + x + "y" + y);
-          cur.insertAdjacentElement("beforeend", spot);
+    <script>
+        (function () {
+            for (y = 0; y < 7; y++) {
+                const cur = document.createElement("div");
+                cur.className = "row";
+                document
+                    .querySelector("#graph-input-boxes")
+                    .insertAdjacentElement("beforeend", cur);
+
+                for (x = 0; x < 54; x++) {
+                    var spot = document.createElement("input");
+                    spot.type = "checkbox";
+                    spot.id = String("x" + x + "y" + y);
+                    cur.insertAdjacentElement("beforeend", spot);
+                }
+            }
+        })();
+    </script>
+    <script>
+        function toggleTheme() {
+            var targetColors = document.styleSheets.item(5);
+
+            var lightThemeRoot = ':root { --lightTheme_background: #bdc3c7; --lightTheme_foreground: #34495e; --darkTheme_background: #2c3e50; --darkTheme_foreground: #ecf0f1; --RobotoSlab: "Roboto Slab", serif; --Nunito: "Nunito", sans-serif; --curBG: var(--lightTheme_background); --curFG: var(--lightTheme_foreground); --curBtnFG: white; }';
+            var darkThemeRoot = ':root { --lightTheme_background: #bdc3c7; --lightTheme_foreground: #34495e; --darkTheme_background: #2c3e50; --darkTheme_foreground: #ecf0f1; --RobotoSlab: "Roboto Slab", serif; --Nunito: "Nunito", sans-serif; --curBG: var(--darkTheme_background); --curFG: var(--darkTheme_foreground); --curBtnFG: black; }';
+            if (targetColors.rules.item(0).cssText == lightThemeRoot) {
+                targetColors.removeRule(0);
+                targetColors.insertRule(darkThemeRoot);
+                document.querySelector(".fa-sun").style = "display: none;";
+                document.querySelector(".fa-moon").style = "";
+            } else {
+                targetColors.removeRule(0);
+                targetColors.insertRule(lightThemeRoot);
+                document.querySelector(".fa-sun").style = "";
+                document.querySelector(".fa-moon").style = "display: none;";
+            }
         }
-      }
-    })();
-  </script>
-  <script>
-    function toggleTheme() {
-      var targetColors = document.styleSheets.item(5);
-
-      var lightThemeRoot = ':root { --lightTheme_background: #bdc3c7; --lightTheme_foreground: #34495e; --darkTheme_background: #2c3e50; --darkTheme_foreground: #ecf0f1; --RobotoSlab: "Roboto Slab", serif; --Nunito: "Nunito", sans-serif; --curBG: var(--lightTheme_background); --curFG: var(--lightTheme_foreground); --curBtnFG: white; }';
-      var darkThemeRoot = ':root { --lightTheme_background: #bdc3c7; --lightTheme_foreground: #34495e; --darkTheme_background: #2c3e50; --darkTheme_foreground: #ecf0f1; --RobotoSlab: "Roboto Slab", serif; --Nunito: "Nunito", sans-serif; --curBG: var(--darkTheme_background); --curFG: var(--darkTheme_foreground); --curBtnFG: black; }';
-      if (targetColors.rules.item(0).cssText == lightThemeRoot) {
-        targetColors.removeRule(0);
-        targetColors.insertRule(darkThemeRoot);
-        document.querySelector(".fa-sun").style = "display: none;";
-        document.querySelector(".fa-moon").style = "";
-      } else {
-        targetColors.removeRule(0);
-        targetColors.insertRule(lightThemeRoot);
-        document.querySelector(".fa-sun").style = "";
-        document.querySelector(".fa-moon").style = "display: none;";
-      }
-    }
-  </script>
-  <script>
-    function createDownloadLink(anchorSelector, str, fileName) {
-      var url = "data:text/plain;charset=utf-8," + encodeURIComponent(str);
-      document.querySelector(anchorSelector).setAttribute("download", fileName);
-      document.querySelector(anchorSelector).setAttribute("href", url);
-    }
-  </script>
-  <script>
-    function triggerConfig() {
-      var resultant = [];
-      resultant.push({
-        intensity: document.getElementById("intensity_range").value
-      });
-      for (y = 0; y < 7; y++) {
-        for (x = 0; x < 54; x++) {
-          if (document.getElementById(String("x" + x + "y" + y)).checked) {
+    </script>
+    <script>
+        function createDownloadLink(anchorSelector, str, fileName) {
+            var url = "data:text/plain;charset=utf-8," + encodeURIComponent(str);
+            document.querySelector(anchorSelector).setAttribute("download", fileName);
+            document.querySelector(anchorSelector).setAttribute("href", url);
+        }
+    </script>
+    <script>
+        function triggerConfig() {
+            var resultant = [];
             resultant.push({
-              "x": x,
-              "y": y,
+                intensity: document.getElementById("intensity_range").value
             });
-          }
+            for (y = 0; y < 7; y++) {
+                for (x = 0; x < 54; x++) {
+                    if (document.getElementById(String("x" + x + "y" + y)).checked) {
+                        resultant.push({
+                            "x": x,
+                            "y": y,
+                        });
+                    }
+                }
+            }
+            if (resultant.length > 1) {
+                var jsonResultant = JSON.stringify(resultant);
+                createDownloadLink("#generate", jsonResultant, "config.json");
+            } else {
+                document.querySelector("#generate").removeAttribute('download');
+                document.querySelector("#generate").removeAttribute('href');
+                $('#errorModal').modal('toggle');
+            }
         }
-      }
-      if(resultant.length > 1) {
-        var jsonResultant = JSON.stringify(resultant);
-        createDownloadLink("#generate", jsonResultant, "config.json");
-      } else {
-        document.querySelector("#generate").removeAttribute('download');
-        document.querySelector("#generate").removeAttribute('href');
-        $('#errorModal').modal('toggle');
-      }
-    }
-  </script>
-  <script>
-       function reset() {
-      for (y = 0; y < 7; y++) {
-        for (x = 0; x < 54; x++) {
-          if (document.getElementById(String("x" + x + "y" + y)).checked) {
-            document.getElementById(String("x" + x + "y" + y)).checked = false;
-          }
+    </script>
+    <script>
+        function reset() {
+            for (y = 0; y < 7; y++) {
+                for (x = 0; x < 54; x++) {
+                    if (document.getElementById(String("x" + x + "y" + y)).checked) {
+                        document.getElementById(String("x" + x + "y" + y)).checked = false;
+                    }
+                }
+            }
+            document.querySelector("#intensity_range").value = 11;
         }
-      }
-      document.querySelector("#intensity_range").value = 11;
-    }
 
-  </script>
-  <script>
-    function gotoHelp() {
-      document.getElementsByTagName("main")[0].style = "display: none;";
-      document.querySelector("#help-page").style = "";
-    }
-    function backToMainFromHelpPage() {
-      document.getElementsByTagName("main")[0].style = "";
-      document.querySelector("#help-page").style = "display: none;";
-    }
-  </script>
+    </script>
 </body>
 
 </html>

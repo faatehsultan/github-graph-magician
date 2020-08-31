@@ -11,7 +11,7 @@
   --Nunito: "Nunito", sans-serif;
 
   /*current setting*/
-  --curBG: var(--lightTheme_background);
+  --curBG: var(--lightTheme_background);  
   --curFG: var(--lightTheme_foreground);
   --curBtnFG: white;
 }
@@ -63,6 +63,16 @@ button:hover,
 button:focus,
 button:active {
   outline: none;
+}
+#help-btn {
+  padding: 3px;
+  background: transparent;
+  color: var(--curFG);
+  font-weight: 1000;
+  font-family: var(--Nunito);
+}
+#help-btn:hover {
+  text-decoration: underline;
 }
 #footer {
   width: 100%;
