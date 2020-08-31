@@ -30,7 +30,7 @@ i="0"
 while [ $i -lt $line ]
 do
     echo "Shade: "$(($i + 1))
-    node files/gh_graph_magician.js
+    node gh_graph_magician.js
     i=$[$i+1]
 done
 
