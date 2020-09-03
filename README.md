@@ -21,3 +21,7 @@ Install **Node JS** on your system and visit [Github Graph Magician](https://faa
 ## Help and Wiki
 
 You can wiki docs for this project [here](https://faatehsultan.github.io./github-graph-magician/wiki)
+
+### Latest Update
+
+Added Background Particles!
