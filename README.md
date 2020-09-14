@@ -16,12 +16,18 @@ Have you ever wanted to modify the looks of your GitHub Contribution Graph? This
 
 ## Usage
 
-Install **Node JS** on your system and visit [Github Graph Magician](https://faatehsultan.github.io./github-graph-magician) to get thorough usage instructions!
-
-## Help and Wiki
-
-You can wiki docs for this project [here](https://faatehsultan.github.io./github-graph-magician/wiki)
+Install **Node JS** on your system and visit *[Github Graph Magician Website](https://faatehsultan.github.io./github-graph-magician)* OR Download *Github Graph Magician Desktop* for [Windows x86](https://github.com/faatehsultan/github-graph-magician/releases/latest/download/github-graph-magician-desktop-win32-ia32.zip) and [Windows x64](https://github.com/faatehsultan/github-graph-magician/releases/latest/download/github-graph-magician-desktop-win32-x64.zip)
 
 ### Latest Update
 
-Added Background Particles!
+Launched desktop apps for Windows Platform x64 and x86
+
+## Help and Issues
+
+If you find any issue, refer to [Wiki](https://github.com/faatehsultan/github-graph-magician/wiki/Github-Graph-Magician-Wiki) or if you are still having issues, report it by creating a new issue [here](https://github.com/faatehsultan/github-graph-magician/issues/new)
+
+## Contributing
+
+You can contribute to this project if you have an innovative idea. Fork this project, make changes as per your idea, and create a pull request. If your work is innovative, I will merge it to master and you'll be mentioned as a contributer. 
+
+Have a good day! :)
