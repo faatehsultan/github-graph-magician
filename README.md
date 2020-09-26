@@ -18,6 +18,10 @@ Have you ever wanted to modify the looks of your GitHub Contribution Graph? This
 
 Install **Node JS** on your system and visit *[Github Graph Magician Website](https://faatehsultan.github.io./github-graph-magician)* OR Download *Github Graph Magician Desktop* for [Windows x86](https://github.com/faatehsultan/github-graph-magician/releases/latest/download/github-graph-magician-desktop-win32-ia32.zip) and [Windows x64](https://github.com/faatehsultan/github-graph-magician/releases/latest/download/github-graph-magician-desktop-win32-x64.zip)
 
+## Current Experimental Branch
+
+This branch is created to do experiments with desktop apps created with electron js for this project. This is not the actual project. To go to actual project, please refer to master branch
+
 ### Latest Update
 
 Launched desktop apps for Windows Platform x64 and x86
