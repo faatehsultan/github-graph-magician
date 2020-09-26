@@ -16,11 +16,11 @@ Have you ever wanted to modify the looks of your GitHub Contribution Graph? This
 
 ## Usage
 
-Install **Node JS** on your system and visit *[Github Graph Magician Website](https://faatehsultan.github.io./github-graph-magician)* OR Download *Github Graph Magician Desktop* for [Windows x86](https://github.com/faatehsultan/github-graph-magician/releases/latest/download/github-graph-magician-desktop-win32-ia32.zip) and [Windows x64](https://github.com/faatehsultan/github-graph-magician/releases/latest/download/github-graph-magician-desktop-win32-x64.zip)
+Install **Node JS** on your system and visit *[Github Graph Magician Website](https://faatehsultan.github.io./github-graph-magician)*
 
 ### Latest Update
 
-Launched desktop apps for Windows Platform x64 and x86
+Removed Desktop App from master branch
 
 ## Help and Issues
 
