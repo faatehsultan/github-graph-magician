@@ -89,7 +89,7 @@ hr {
 a#generate {
   color: var(--curBG);
 }
-a#nodejs-link,
+a.special-link,
 a#header-logo {
   color: var(--curFG);
 }
